@@ -24,3 +24,5 @@ openstack flavor delete m1.large
 openstack flavor create --public m1.large --id auto --ram 6144 --vcpus 3 --disk 80
 openstack flavor delete m1.xlarge
 openstack flavor create --public m1.xlarge --id auto --ram 6144 --vcpus 4 --disk 100
+openstack flavor delete m1.xxlarge || true
+openstack flavor create --public m1.xxlarge --id auto --ram 8196 --vcpus 4 --disk 100

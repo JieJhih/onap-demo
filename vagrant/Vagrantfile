@@ -1,8 +1,9 @@
-$num_compute_nodes = 2
+$num_compute_nodes = 6
 
 Vagrant.configure("2") do |config|
 
   config.vm.box = "bento/ubuntu-16.04"
+  config.vm.boot_timeout = 120
 
   config.vm.provider :virtualbox do |vb|
     vb.customize ['modifyvm', :id, '--natnet1', '192.168.240.0/24']

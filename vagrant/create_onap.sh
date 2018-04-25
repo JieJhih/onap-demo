@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 set -ex
 
+sudo apt update
 sudo apt-get install -y python-openstackclient python-heatclient
 
 source /vagrant/openrc
-cp /demo/heat/ONAP/* .
+cp -a /demo/heat/ONAP/* .
 
 # Parameters used across all ONAP components
 pub_net=$(openstack network list -f value|grep public | cut -f1 -d' ')
@@ -15,6 +16,7 @@ sed -i "s/flavor_small:.*/flavor_small: m1.small/" onap_openstack.env
 sed -i "s/flavor_medium:.*/flavor_medium: m1.medium/" onap_openstack.env
 sed -i "s/flavor_large:.*/flavor_large: m1.large/" onap_openstack.env
 sed -i "s/flavor_xlarge:.*/flavor_xlarge: m1.xlarge/" onap_openstack.env
+sed -i "s/flavor_xxlarge:.*/flavor_xxlarge: m1.xxlarge/" onap_openstack.env
 rm -rf onap onap.pub
 ssh-keygen  -t rsa -N ''  -f onap
 cp onap onap.pub /vagrant
