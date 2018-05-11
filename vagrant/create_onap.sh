@@ -33,7 +33,7 @@ sed -i  "s,keystone_url:.*,keystone_url: http://192.168.0.10/identity/,"  onap_o
 sed -i  "s/dns_list:.*/dns_list: 8.8.8.8/" onap_openstack.env
 sed -i  "s/external_dns:.*/external_dns: 8.8.8.8/" onap_openstack.env
 
-openstack stack delete --yes --wait ONAP || true
+openstack stack delete --yes --wait ONAP 2> /dev/null || true
 openstack stack create -t onap_openstack.yaml -e onap_openstack.env ONAP
 
 sleep 300
