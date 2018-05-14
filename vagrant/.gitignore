@@ -1,0 +1,5 @@
+.vagrant/
+large_disk_file.1.vdi*
+*.vdi?
+logs/
+devstack/
