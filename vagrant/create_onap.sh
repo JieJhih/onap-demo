@@ -45,4 +45,5 @@ do
     echo "$ip $vm.api.simpledemo.openecomp.org" | sudo tee -a /etc/hosts
 done
 ssh -o StrictHostKeyChecking=no ubuntu@portal.api.simpledemo.openecomp.org -i onap "curl sina.com.cn"
-ssh -o StrictHostKeyChecking=no -L 8843:127.0.0.1:8843 -L 3000:127.0.0.1:3000 -L 8201:127.0.0.1:8201 -L 32768:127.0.0.1:32768 ubuntu@sdnc.api.simpledemo.openecomp.org
+ssh -o StrictHostKeyChecking=no -L 8843:127.0.0.1:8843 -L 3000:127.0.0.1:3000 -L 8201:127.0.0.1:8201 -L 32768:127.0.0.1:32768 ubuntu@sdnc.api.simpledemo.openecomp.org -i onap
+ssh -o StrictHostKeyChecking=no -L 8843:127.0.0.1:8843 ubuntu@so.api.simpledemo.openecomp.org -i onap
