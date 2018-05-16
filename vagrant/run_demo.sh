@@ -3,7 +3,7 @@ set -ex
 
 
 sudo apt update 
-sudo apt-get install linux-generic linux-image-generic linux-headers-generic linux-signed-generic
+sudo apt-get install -y build-essential linux-headers-`uname -r`
 sudo apt-get install -y virtualbox
 ver=$(apt-cache policy vagrant | grep Installed | cut -d ':' -f 3)
 if [[ "$ver" != "2.0.3" ]]; then
